@@ -1,0 +1,6 @@
+{
+  "name": "TPA Al-Ikhlas Surabaya",
+  "description": "Website Resmi TPA Al-Ikhlas Surabaya - Media Pembelajaran Ceria Santri SD, Absensi WhatsApp Otomatis, Bank Soal & Kuis Berpoint, Cetak Ijazah Resmi, dan Hafalan Juz 30.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

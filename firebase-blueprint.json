@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "Santri": {
+      "title": "Santri",
+      "description": "Profil santri, rekap absensi, nilai akademik, kompetensi belajar, dan sertifikat kelulusan.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID pemilik data santri."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email Google santri atau wali santri."
+        },
+        "nis": {
+          "type": "string",
+          "description": "Nomor Induk Santri resmi."
+        },
+        "nama": {
+          "type": "string",
+          "description": "Nama lengkap santri."
+        },
+        "namaPanggilan": {
+          "type": "string",
+          "description": "Nama panggilan santri."
+        },
+        "kelasSD": {
+          "type": "string",
+          "description": "Kelas dan sekolah asal santri."
+        },
+        "tingkatJilid": {
+          "type": "string",
+          "description": "Tingkatan jilid atau Al-Quran."
+        },
+        "namaWali": {
+          "type": "string",
+          "description": "Nama orang tua / wali santri."
+        },
+        "noHpWali": {
+          "type": "string",
+          "description": "Nomor WhatsApp aktif wali santri."
+        },
+        "alamat": {
+          "type": "string",
+          "description": "Alamat domisili santri di Surabaya."
+        },
+        "jenisKelamin": {
+          "type": "string",
+          "enum": ["L", "P"],
+          "description": "Jenis kelamin santri."
+        },
+        "waktuMengaji": {
+          "type": "string",
+          "description": "Pilihan jadwal kelas mengaji."
+        },
+        "totalPoints": {
+          "type": "number",
+          "description": "Total poin bintang keaktifan dan kuis."
+        },
+        "statusKehadiran": {
+          "type": "string",
+          "enum": ["Hadir", "Sakit", "Izin", "Alpa"],
+          "description": "Status kehadiran terakhir."
+        },
+        "totalHadir": {
+          "type": "number",
+          "description": "Jumlah total absensi hadir santri."
+        },
+        "totalIzin": {
+          "type": "number",
+          "description": "Jumlah total izin santri."
+        },
+        "totalSakit": {
+          "type": "number",
+          "description": "Jumlah total sakit santri."
+        },
+        "totalAlpa": {
+          "type": "number",
+          "description": "Jumlah total alpa santri."
+        },
+        "terakhirAbsen": {
+          "type": "string",
+          "description": "Tanggal terakhir santri melakukan absensi."
+        },
+        "nilai": {
+          "type": "object",
+          "description": "Rincian nilai 4 mata pelajaran santri."
+        },
+        "kompetensiBelajar": {
+          "type": "object",
+          "description": "Checklist capaian kompetensi belajar santri."
+        },
+        "statusIjazah": {
+          "type": "boolean",
+          "description": "Status kelulusan sertifikat/ijazah santri."
+        },
+        "nomorIjazah": {
+          "type": "string",
+          "description": "Nomor seri sertifikat resmi TPA Al-Ikhlas."
+        },
+        "tanggalLulus": {
+          "type": "string",
+          "description": "Tanggal kelulusan santri."
+        },
+        "hafalanSelesai": {
+          "type": "array",
+          "description": "Daftar surat Juz 30 yang telah dihafal santri."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Waktu pendaftaran akun santri."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Waktu pembaruan data santri terakhir."
+        }
+      },
+      "required": ["userId", "nis", "nama", "namaPanggilan", "kelasSD", "tingkatJilid", "namaWali", "noHpWali"]
+    }
+  },
+  "firestore": {
+    "/santri/{userId}": {
+      "schema": {
+        "$ref": "#/entities/Santri"
+      },
+      "description": "Menyimpan data santri privat (absensi, nilai, kompetensi, sertifikat) yang hanya dapat diakses oleh santri pemilik akun itu sendiri."
+    }
+  }
+}
